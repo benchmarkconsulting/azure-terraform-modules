@@ -36,7 +36,7 @@ variable "subnet" {
 }
 
 variable "address_space" {
-  type        = list(map(string))
+  type        = string
   description = "The networks address range in CIDR"
 }
            
