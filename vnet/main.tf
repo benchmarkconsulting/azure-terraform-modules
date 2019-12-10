@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "demo" {
-  name     = var.name
+  name     = "jdog"
   location = var.location
 }
 
