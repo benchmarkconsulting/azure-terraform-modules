@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "demo" {
 }
 
 resource "azurerm_virtual_network" "demo1" {
-  name                = var.name
+  name                = "network1"
   resource_group_name = var.azurerm_resource_group.name
   location            = var.azurerm_resource_group.location
   address_space       = var.address_space
