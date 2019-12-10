@@ -14,12 +14,19 @@ resource "azurerm_subnet" "subnet1" {
   name                 = "subnet1"
   virtual_network_name = var.azurerm_virtual_network.name
   resource_group_name  = var.azurerm_resource_group.name
-  address_prefix       = "10.0.1.0/24"
+  address_prefix       = var.address_prefix
 }
 
 resource "azurerm_subnet" "subnet2" {
   name                 = "subnet2"
   virtual_network_name = var.azurerm_virtual_network.name
   resource_group_name  = var.azurerm_resource_group.name
-  address_prefix       = "10.0.2.0/24"
+  address_prefix       = var.address_prefix
+}
+
+resource "azurerm_subnet" "subnet3" {
+  name                 = "subnet3"
+  virtual_network_name = var.azurerm_virtual_network.name
+  resource_group_name  = var.azurerm_resource_group.name
+  address_prefix       = var.address_prefix
 }
