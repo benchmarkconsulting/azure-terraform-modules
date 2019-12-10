@@ -21,7 +21,7 @@ variable "tags" {
 
 # Predefined rules   
 variable "predefined_rules" {
-  type    = list(map)
+  type    = list(map(string))
   default = []
 }
 
