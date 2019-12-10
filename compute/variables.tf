@@ -10,6 +10,10 @@ variable "name" {
   description = "The name of the virtual machine."
 }
 
+variable "nice" {
+  description = "The name network interface."
+}
+
 variable "network_interface_ids" {
   description = "The name of the virtual machine."
 }

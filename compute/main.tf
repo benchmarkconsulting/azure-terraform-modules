@@ -4,9 +4,9 @@ resource "azurerm_resource_group" "nsg" {
 }
 
 resource "azurerm_network_interface" "main" {
-  name                = "${var.prefix}-nic"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
+  nic_name                = var.nic
+  location            = var.location
+  resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "testconfiguration1"
