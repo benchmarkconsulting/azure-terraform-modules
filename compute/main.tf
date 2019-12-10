@@ -71,6 +71,8 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     resource_group_name   = var.azurerm_resource_group
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
     vm_size               = "Standard_DS1_v2"
+    delete_os_disk_on_termination    = true
+    delete_data_disks_on_termination = true
 
     storage_os_disk {
         name              = "myOsDisk"
@@ -89,6 +91,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     os_profile {
         computer_name  = "myvm"
         admin_username = "azureuser"
+        admin_password = "azureuser"
     }
 
     os_profile_linux_config {
