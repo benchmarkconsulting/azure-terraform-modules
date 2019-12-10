@@ -14,6 +14,10 @@ variable "network_interface_ids" {
   description = "The name of the virtual machine."
 }
 
+variable "network_security_group_id" {
+  description = "The name of the virtual machine."
+}
+
 variable "azurerm_network_interface" {
   description = "The name of the virtual machine."
 }
