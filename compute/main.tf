@@ -67,7 +67,7 @@ resource "random_id" "randomId" {
 # Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
-    location              = "eastus"
+    location              = var.location
     resource_group_name   = var.azurerm_resource_group
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
     vm_size               = "Standard_DS1_v2"
