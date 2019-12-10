@@ -121,7 +121,7 @@ variable "data_disk_size_gb" {
 }
 
 variable "data_disk" {
-  type        = "string"
+  type        = string
   description = "Set to true to add a datadisk."
   default     = "false"
 }
@@ -137,7 +137,7 @@ variable "boot_diagnostics_sa_type" {
 }
 
 variable "enable_accelerated_networking" {
-  type        = "string"
+  type        = string
   description = "(Optional) Enable accelerated networking on Network interface"
   default     = "false"
 }

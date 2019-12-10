@@ -25,14 +25,14 @@ resource "azurerm_virtual_machine" "vm-linux" {
     name              = "osdisk-${var.vm_hostname}-${count.index}"
     create_option     = "FromImage"
     caching           = "ReadWrite"
-    managed_disk_type = "${var.storage_account_type}"
+    managed_disk_type = var.storage_account_type
   }
 
   os_profile {
     computer_name  = "${var.vm_hostname}${count.index}"
-    admin_username = "${var.admin_username}"
-    admin_password = "${var.admin_password}"
-    custom_data    = "${var.custom_data}"
+    admin_username = var.admin_username
+    admin_password = var.admin_password
+    custom_data    = var.custom_data
   }
 
   os_profile_linux_config {
@@ -40,14 +40,14 @@ resource "azurerm_virtual_machine" "vm-linux" {
 
     ssh_keys {
       path     = "/home/${var.admin_username}/.ssh/authorized_keys"
-      key_data = "${file("${var.ssh_key}")}"
+      key_data = file("${var.ssh_key}")
     }
   }
 
-  tags = "${var.tags}"
+  tags = var.tags
 
   boot_diagnostics {
-    enabled     = "${var.boot_diagnostics}"
-    storage_uri = "${var.boot_diagnostics == "true" ? join(",", azurerm_storage_account.vm-sa.*.primary_blob_endpoint) : "" }"
+    enabled     = var.boot_diagnostics
+    storage_uri = var.boot_diagnostics == "true" ? join(",", azurerm_storage_account.vm-sa.*.primary_blob_endpoint) : ""
   }
 }
