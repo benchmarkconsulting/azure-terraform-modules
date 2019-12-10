@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "nsg" {
   location = var.location
 }
 
-resource "azurerm_network_security_group" "nsg" {
+resource "azurerm_network_security_group" "demo_nsg" {
   name                = var.security_group_name
   location            = var.location
   resource_group_name = azurerm_resource_group.nsg.name
@@ -27,7 +27,7 @@ resource "azurerm_network_security_rule" "predefined_rules" {
   source_address_prefix       = join(",", var.source_address_prefix)
   destination_address_prefix  = join(",", var.destination_address_prefix)
   resource_group_name         = azurerm_resource_group.nsg.name
-  network_security_group_name = azurerm_network_security_group.nsg.name
+  network_security_group_name = azurerm_network_security_group.demo_nsg.name
 }
 
 #############################

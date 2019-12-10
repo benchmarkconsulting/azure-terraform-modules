@@ -18,9 +18,9 @@ variable "tags" {
 # Security Rules definition 
 
 # Predefined rules   
-variable "predefined_rules" {
-  type    = list
-  default = []
+#variable "predefined_rules" {
+  #type    = list
+  #default = []
 }
 
 
