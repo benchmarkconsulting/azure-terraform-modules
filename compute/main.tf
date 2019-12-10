@@ -7,7 +7,7 @@ resource "azurerm_network_interface" "private_nic" {
   name                = "private_nic"
   location            = var.location
   resource_group_name = var.resource_group_name
-  network_security_group_id = "demo"
+  #network_security_group_id = "demo"
 
   ip_configuration {
     name                          = "testconfiguration1"
