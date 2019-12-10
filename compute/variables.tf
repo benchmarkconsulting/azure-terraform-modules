@@ -6,6 +6,10 @@ variable "location" {
   description = "The location/region where the virtual network is created. Changing this forces a new resource to be created."
 }
 
+variable "name" {
+  description = "The name of the virtual machine."
+}
+
 variable "vnet_subnet_id" {
   description = "The subnet id of the virtual network where the virtual machines will reside."
 }
