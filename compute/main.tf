@@ -43,11 +43,4 @@ resource "azurerm_virtual_machine" "vm-linux" {
       key_data = file("${var.ssh_key}")
     }
   }
-
-  tags = var.tags
-
-  boot_diagnostics {
-    enabled     = var.boot_diagnostics
-    storage_uri = var.boot_diagnostics == "true" ? join(",", azurerm_storage_account.vm-sa.*.primary_blob_endpoint) : ""
-  }
 }
