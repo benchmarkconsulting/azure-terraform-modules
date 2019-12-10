@@ -21,7 +21,7 @@ variable "tags" {
 #variable "predefined_rules" {
   #type    = list
   #default = []
-}
+#}
 
 
 # Custom security rules
