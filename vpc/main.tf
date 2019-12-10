@@ -8,7 +8,7 @@ resource "azurerm_virtual_network" "vnet" {
 }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = "${var.subnet_names[count.index]}"
+  name                 = "${var.subnet[count.index]["subnet_name"]}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${var.resource_group_name}"
   address_prefix       = "${var.subnet_prefixes[count.index]}"
