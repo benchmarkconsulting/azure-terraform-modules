@@ -4,13 +4,13 @@ resource "azurerm_resource_group" "nsg" {
 }
 
 resource "azurerm_network_interface" "main" {
-  nic_name                = var.nic
+  nic_name            = var.nic
   location            = var.location
   resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = "${azurerm_subnet.internal.id}"
+    subnet_id                     = var.subnet.id
     private_ip_address_allocation = "Dynamic"
   }
 }
