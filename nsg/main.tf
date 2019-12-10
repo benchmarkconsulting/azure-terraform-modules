@@ -10,10 +10,6 @@ resource "azurerm_network_security_group" "demo_nsg" {
   tags                = var.tags
 }
 
-#############################
-#  Detailed security rules  # 
-#############################
-
 resource "azurerm_network_security_rule" "custom_rules" {
   count                       = length(var.custom_rules)
   name                        = lookup(var.custom_rules[count.index], "name", "default_rule_name")
