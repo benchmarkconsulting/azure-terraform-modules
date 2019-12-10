@@ -31,6 +31,10 @@ variable "subnet_names" {
   description = "A list of public subnets inside the vNet."
 }
 
+variable "subnet" {
+  description = "A list of public subnets inside the vNet."
+}
+
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type        = "map"
