@@ -1,8 +1,8 @@
-
 #Azure Generic vNet Module
 resource "azurerm_resource_group" "network" {
   name     = "${var.resource_group_name}"
   location = "${var.location}"
+  resource_group = var.resource_group_name
 }
 
 resource "azurerm_virtual_network" "vnet" {
