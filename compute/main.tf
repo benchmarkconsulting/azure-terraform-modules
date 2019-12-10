@@ -11,7 +11,7 @@ resource "azurerm_network_interface" "private_nic" {
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = var.vnet_subnet_id
+    subnet_id                     = "subnet1"
     private_ip_address_allocation = "Dynamic"
   }
 }
