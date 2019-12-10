@@ -15,7 +15,7 @@ variable "resource_group_name" {
 
 variable "subnet_prefixes" {
   type = string
-  description = "Virtual Network"
+  description = "subnet_names"
   }
 
   variable "subnet_names" {

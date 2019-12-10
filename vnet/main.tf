@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "demo" {
-  name     = "${var.prefix}-resources"
+  name     = var.name
   location = var.location
 }
 
 resource "azurerm_virtual_network" "demo1" {
-  name                = "${var.prefix}-network"
+  name                = var.name
   resource_group_name = var.azurerm_resource_group.name
   location            = var.azurerm_resource_group.location
   address_space       = var.address_space
