@@ -1,13 +1,18 @@
-resource "azurerm_virtual_network" "example" {
+resource "azurerm_resource_group" "demo" {
+  name     = "${var.prefix}-resources"
+  location = "${var.location}"
+}
+
+resource "azurerm_virtual_network" "demo" {
   name                = "${var.prefix}-network"
-  resource_group_name = "${azurerm_resource_group.example.name}"
-  location            = "${azurerm_resource_group.example.location}"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+  location            = "${azurerm_resource_group.demo.location}"
   address_space       = ["10.0.0.0/16"]
 }
 
-resource "azurerm_subnet" "example" {
-  name                 = "internal"
-  virtual_network_name = "${azurerm_virtual_network.example.name}"
-  resource_group_name  = "${azurerm_resource_group.example.name}"
+resource "azurerm_subnet" "frontend" {
+  name                 = "frontend"
+  virtual_network_name = "${azurerm_virtual_network.demo.name}"
+  resource_group_name  = "${azurerm_resource_group.demo.name}"
   address_prefix       = "10.0.1.0/24"
 }
