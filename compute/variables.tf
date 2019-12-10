@@ -10,7 +10,7 @@ variable "name" {
   description = "The name of the virtual machine."
 }
 
-variable "nice" {
+variable "nic" {
   description = "The name network interface."
 }
 
