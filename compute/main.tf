@@ -10,7 +10,7 @@ resource "azurerm_virtual_machine" "vm-linux" {
   resource_group_name           = var.resource_group_name
   #availability_set_id          = azurerm_availability_set.vm.id
   vm_size                       = var.vm_size
-  network_interface_ids         = ["${element(azurerm_network_interface.vm.*.id, count.index)}"]
+  network_interface_ids         = var.network_interface_ids
   delete_os_disk_on_termination = var.delete_os_disk_on_termination
 
   #storage_image_reference {
