@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "nsg" {
 }
 
 resource "azurerm_network_interface" "main" {
-  name            = "nic1"
+  name                = var.azurerm_network_interface.private_nic.id
   location            = var.location
   resource_group_name = var.resource_group_name
 
