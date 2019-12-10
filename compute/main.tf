@@ -1,13 +1,13 @@
 resource "azurerm_resource_group" "nsg" {
-  name     = var.resource_group_name
-  location = var.location
+  name     = module.network.resource_group_name
+  location = module.network.location
 }
 
 resource "azurerm_virtual_machine" "vm-linux" {
   #count                         = "${!contains(list("${var.vm_os_simple}","${var.vm_os_offer}"), "Windows") && var.is_windows_image != "true" && var.data_disk == "false" ? var.nb_instances : 0}"
   name                          = "${var.vm_hostname}${count.index}"
   location                      = var.location
-  resource_group_name           = azurerm_resource_group.vm.name
+  resource_group_name           = var.azurerm_resource_group.vm.name
   availability_set_id           = azurerm_availability_set.vm.id
   vm_size                       = var.vm_size
   network_interface_ids         = ["${element(azurerm_network_interface.vm.*.id, count.index)}"]
