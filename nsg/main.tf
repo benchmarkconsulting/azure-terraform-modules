@@ -47,5 +47,5 @@ resource "azurerm_network_security_rule" "custom_rules" {
   destination_address_prefix  = lookup(var.custom_rules[count.index], "destination_address_prefix", "*")
   description                 = lookup(var.custom_rules[count.index], "description", "Security rule for ${lookup(var.custom_rules[count.index], "name", "default_rule_name")}")
   resource_group_name         = azurerm_resource_group.nsg.name
-  network_security_group_name = azurerm_network_security_group.demo-nsg.name
+  network_security_group_name = azurerm_network_security_group.demo_nsg.name
 }
