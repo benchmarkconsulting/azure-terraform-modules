@@ -15,15 +15,6 @@ variable "tags" {
   default     = {}
 }
 
-# Security Rules definition 
-
-# Predefined rules   
-#variable "predefined_rules" {
-  #type    = list
-  #default = []
-#}
-
-
 # Custom security rules
 # [priority, direction, access, protocol, source_port_range, destination_port_range, description]"
 # All the fields are required.
