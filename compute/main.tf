@@ -19,7 +19,7 @@ resource "azurerm_virtual_machine" "vm-linux" {
     #offer     = var.vm_os_id == "" ? coalesce(var.vm_os_offer, module.os.calculated_value_os_offer) : ""
     #sku       = var.vm_os_id == "" ? coalesce(var.vm_os_sku, module.os.calculated_value_os_sku) : ""
     #version   = var.vm_os_id == "" ? var.vm_os_version : ""
-  }
+  #}
 
   storage_os_disk {
     name              = "osdisk-${var.vm_hostname}-${count.index}"
