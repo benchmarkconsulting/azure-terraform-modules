@@ -14,11 +14,11 @@ variable "resource_group_name" {
 }
 
 variable "subnet_prefixes" {
-  type = string
+  type = list
   description = "subnet_names"
   }
 
   variable "subnet_names" {
-  type = string
+  type = list
   description = "Virtual Network"
   }
