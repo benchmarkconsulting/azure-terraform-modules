@@ -22,7 +22,7 @@ variable "azurerm_network_interface" {
   description = "The name of the virtual machine."
 }
 
-variable "vnet_subnet_id" {
+variable "azurerm_subnet_id" {
   description = "The subnet id of the virtual network where the virtual machines will reside."
 }
 
