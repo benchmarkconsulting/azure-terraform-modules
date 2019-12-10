@@ -16,7 +16,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = var.location
-    resource_group_name = azurerm_resource_group.myterraformgroup.name
+    resource_group_name = var.azurerm_resource_group
     
     security_rule {
         name                       = "SSH"
@@ -58,7 +58,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
-        resource_group = azurerm_resource_group.myterraformgroup.name
+        resource_group = var.azurerm_resource_group
     }
     
     byte_length = 8
@@ -68,7 +68,7 @@ resource "random_id" "randomId" {
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "eastus"
-    resource_group_name   = azurerm_resource_group.myterraformgroup.name
+    resource_group_name   = var.azurerm_resource_group
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
     vm_size               = "Standard_DS1_v2"
 
