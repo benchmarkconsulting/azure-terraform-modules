@@ -1,6 +1,5 @@
 variable "resource_group_name" {
   description = "The name of the resource group in which the resources will be created"
-  default     = "terraform-compute"
 }
 
 variable "location" {
@@ -94,15 +93,6 @@ variable "vm_os_sku" {
 variable "vm_os_version" {
   description = "The version of the image that you want to deploy. This is ignored when vm_os_id or vm_os_simple are provided."
   default     = "latest"
-}
-
-variable "tags" {
-  type        = "map"
-  description = "A map of the tags to use on the resources that are deployed with this module."
-
-  default = {
-    source = "terraform"
-  }
 }
 
 variable "public_ip_address_allocation" {
