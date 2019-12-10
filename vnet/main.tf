@@ -1,32 +1,22 @@
-resource "azurerm_resource_group" "demo" {
-  name     = "jdog"
-  location = var.location
+#Azure Generic vNet Module
+resource "azurerm_resource_group" "network" {
+  name     = "${var.resource_group_name}"
+  location = "${var.location}"
 }
 
-resource "azurerm_virtual_network" "demo1" {
-  name                = "network1"
-  resource_group_name = var.azurerm_resource_group.name
-  location            = var.azurerm_resource_group.location
-  address_space       = var.address_space
+resource "azurerm_virtual_network" "vnet" {
+  name                = "${var.vnet_name}"
+  location            = "${var.location}"
+  address_space       = ["${var.address_space}"]
+  resource_group_name = "${azurerm_resource_group.network.name}"
+  dns_servers         = "${var.dns_servers}"
+  tags                = "${var.tags}"
 }
 
-resource "azurerm_subnet" "subnet1" {
-  name                 = "subnet1"
-  virtual_network_name = var.azurerm_virtual_network.name
-  resource_group_name  = var.azurerm_resource_group.name
-  address_prefix       = var.address_prefix
-}
-
-resource "azurerm_subnet" "subnet2" {
-  name                 = "subnet2"
-  virtual_network_name = var.azurerm_virtual_network.name
-  resource_group_name  = var.azurerm_resource_group.name
-  address_prefix       = var.address_prefix
-}
-
-resource "azurerm_subnet" "subnet3" {
-  name                 = "subnet3"
-  virtual_network_name = var.azurerm_virtual_network.name
-  resource_group_name  = var.azurerm_resource_group.name
-  address_prefix       = var.address_prefix
+resource "azurerm_subnet" "subnet" {
+  name                 = "${var.subnet_names[count.index]}"
+  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
+  resource_group_name  = "${azurerm_resource_group.network.name}"
+  address_prefix       = "${var.subnet_prefixes[count.index]}"
+  count                = "${length(var.subnet_names)}"
 }
