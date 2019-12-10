@@ -13,12 +13,12 @@ resource "azurerm_virtual_machine" "vm-linux" {
   network_interface_ids         = ["${element(azurerm_network_interface.vm.*.id, count.index)}"]
   delete_os_disk_on_termination = var.delete_os_disk_on_termination
 
-  storage_image_reference {
-    id        = var.vm_os_id
-    publisher = var.vm_os_id == "" ? coalesce(var.vm_os_publisher, module.os.calculated_value_os_publisher) : ""
-    offer     = var.vm_os_id == "" ? coalesce(var.vm_os_offer, module.os.calculated_value_os_offer) : ""
-    sku       = var.vm_os_id == "" ? coalesce(var.vm_os_sku, module.os.calculated_value_os_sku) : ""
-    version   = var.vm_os_id == "" ? var.vm_os_version : ""
+  #storage_image_reference {
+   # id        = var.vm_os_id
+    #publisher = var.vm_os_id == "" ? coalesce(var.vm_os_publisher, module.os.calculated_value_os_publisher) : ""
+    #offer     = var.vm_os_id == "" ? coalesce(var.vm_os_offer, module.os.calculated_value_os_offer) : ""
+    #sku       = var.vm_os_id == "" ? coalesce(var.vm_os_sku, module.os.calculated_value_os_sku) : ""
+    #version   = var.vm_os_id == "" ? var.vm_os_version : ""
   }
 
   storage_os_disk {
