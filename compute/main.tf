@@ -10,7 +10,7 @@ resource "azurerm_network_interface" "main" {
 
   ip_configuration {
     name                          = "testconfiguration1"
-    subnet_id                     = var.subnet_id.id
+    subnet_id                     = var.vnet_subnet_id
     private_ip_address_allocation = "Dynamic"
   }
 }
