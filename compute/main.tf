@@ -39,12 +39,12 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
     location                  = var.location
-    resource_group_name       = azurerm_resource_group.myterraformgroup.name
-    network_security_group_id = azurerm_network_security_group.myterraformnsg.id
+    resource_group_name       = var.azurerm_resource_group
+    network_security_group_id = var.azurerm_network_security_group
 
     ip_configuration {
         name                          = "myNicConfiguration"
-        subnet_id                     = azurerm_subnet.myterraformsubnet.id
+        subnet_id                     = azurerm_subnet.id
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
     }
