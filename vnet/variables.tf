@@ -1,6 +1,5 @@
 variable "vnet_name" {
   description = "Name of the vnet to create"
-  default     = "acctvnet"
 }
 
 variable "resource_group_name" {
@@ -26,9 +25,4 @@ variable "subnet_names" {
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type        = map
-
-  default = {
-    tag1 = "demo"
-    tag2 = "cbc"
-  }
 }
