@@ -11,3 +11,4 @@ resource "azurerm_virtual_machine" "vm-linux" {
   vm_size                       = "${var.vm_size}"
   network_interface_ids         = ["${element(azurerm_network_interface.vm.*.id, count.index)}"]
   delete_os_disk_on_termination = "${var.delete_os_disk_on_termination}"
+}
