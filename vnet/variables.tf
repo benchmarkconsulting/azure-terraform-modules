@@ -22,3 +22,13 @@ variable "subnet_prefixes" {
   type = list
   description = "Virtual Network"
   }
+
+variable "azurerm_resource_group" {
+  type = string
+  description = "Resource Group"
+}
+
+variable "azurerm_virtual_network" {
+  type = string
+  description = "Resource Group"
+}
