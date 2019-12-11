@@ -12,29 +12,6 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     }
 }
 
-# Create Network Security Group and rule
-resource "azurerm_network_security_group" "myterraformnsg" {
-    name                = "myNetworkSecurityGroup"
-    location            = var.location
-    resource_group_name = var.azurerm_resource_group
-    
-    security_rule {
-        name                       = "SSH"
-        priority                   = 1001
-        direction                  = "Inbound"
-        access                     = "Allow"
-        protocol                   = "Tcp"
-        source_port_range          = "*"
-        destination_port_range     = "22"
-        source_address_prefix      = "*"
-        destination_address_prefix = "*"
-    }
-
-    tags = {
-        environment = "Terraform Demo"
-    }
-}
-
 # Create network interface
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
@@ -91,7 +68,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     os_profile {
         computer_name  = "myvm"
         admin_username = "azureuser"
-        admin_password = "azureuser"
+        adminPassword = "Pa$$1234"
     }
 
     os_profile_linux_config {
