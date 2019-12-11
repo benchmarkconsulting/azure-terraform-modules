@@ -52,7 +52,7 @@ variable "admin_username" {
 }
 
 variable "custom_data" {
-  description = "The custom data to supply to the machine. This can be used as a cloud-init for Linux systems."
+  description = "The custom data to supply to the machine."
   default     = ""
 }
 
@@ -158,6 +158,6 @@ variable "enable_accelerated_networking" {
   default     = "false"
 }
 
-variable "cloudconfig_file" {
-  description = "Location of the file used for cloud-init"
+variable "startup-script" {
+  description = "Name of the file used for the startup-script"
 }
