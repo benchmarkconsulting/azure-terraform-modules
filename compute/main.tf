@@ -1,5 +1,5 @@
 # Create public IPs
-resource "azurerm_public_ip" "myterraformpublicip" {
+resource "azurerm_public_ip" "vm" {
     name                         = "${var.vm_hostname}-publicIP"
     location                     = var.location
     resource_group_name          = var.azurerm_resource_group
@@ -7,7 +7,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 }
 
 # Create network interface
-resource "azurerm_network_interface" "myterraformnic" {
+resource "azurerm_network_interface" "vm" {
     name                      = "nic-${var.vm_hostname}"
     location                  = var.location
     resource_group_name       = var.azurerm_resource_group
@@ -17,16 +17,16 @@ resource "azurerm_network_interface" "myterraformnic" {
         name                          = "ipconfig"
         subnet_id                     = var.azurerm_subnet_id
         private_ip_address_allocation = "Dynamic"
-        public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
+        public_ip_address_id          = azurerm_public_ip.vm.id
     }
 }
 
 # Create virtual machine
-resource "azurerm_virtual_machine" "myterraformvm" {
+resource "azurerm_virtual_machine" "vm" {
     name                  = var.vm_hostname
     location              = var.location
     resource_group_name   = var.azurerm_resource_group
-    network_interface_ids = [azurerm_network_interface.myterraformnic.id]
+    network_interface_ids = [azurerm_network_interface.vm.id]
     vm_size               = var.vm_size
     delete_os_disk_on_termination    = true
     delete_data_disks_on_termination = true
