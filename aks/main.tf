@@ -4,19 +4,20 @@ resource "azurerm_resource_group" "aks" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = var.cluster_name
-  location            = azurerm_resource_group.aks.location
-  resource_group_name = azurerm_resource_group.aks.name
-  dns_prefix          = var.cluster_name
+  name                  = var.cluster_name
+  location              = azurerm_resource_group.aks.location
+  resource_group_name   = azurerm_resource_group.aks.name
+  dns_prefix            = var.cluster_name
 
   default_node_pool {
-    name       = var.node_name
-    node_count = var.node_count
-    vm_size    = var.node_size
-    type       = var.node_type
-    min_count  = var.min_node_count
-    max_count  = var.max_node_count
-    max_pods   = var.max_pods
+    enable_auto_scaling = var.autoscale
+    name                = var.node_name
+    node_count          = var.node_count
+    vm_size             = var.node_size
+    type                = var.node_type
+    min_count           = var.min_node_count
+    max_count           = var.max_node_count
+    max_pods            = var.max_pods
   }
 
   service_principal {
