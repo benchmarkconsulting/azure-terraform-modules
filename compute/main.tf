@@ -1,6 +1,6 @@
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
-    name                         = "${var.vm_hostname}-${count.index}-publicIP"
+    name                         = "${var.vm_hostname}-publicIP"
     location                     = var.location
     resource_group_name          = var.azurerm_resource_group
     allocation_method            = "Dynamic"
@@ -8,13 +8,13 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 
 # Create network interface
 resource "azurerm_network_interface" "myterraformnic" {
-    name                      = "nic-${var.vm_hostname}-${count.index}"
+    name                      = "nic-${var.vm_hostname}"
     location                  = var.location
     resource_group_name       = var.azurerm_resource_group
     network_security_group_id = var.azurerm_network_security_group
 
     ip_configuration {
-        name                          = "ipconfig${count.index}"
+        name                          = "ipconfig"
         subnet_id                     = var.azurerm_subnet_id
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
@@ -23,7 +23,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 
 # Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {
-    name                  = "${var.vm_hostname}${count.index}"
+    name                  = var.vm_hostname
     location              = var.location
     resource_group_name   = var.azurerm_resource_group
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
@@ -32,7 +32,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     delete_data_disks_on_termination = true
 
     storage_os_disk {
-        name              = "osdisk-${var.vm_hostname}-${count.index}"
+        name              = "osdisk-${var.vm_hostname}"
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = var.storage_account_type
@@ -46,7 +46,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     }
 
     os_profile {
-        computer_name  = "${var.vm_hostname}${count.index}"
+        computer_name  = var.vm_hostname
         admin_username = var.admin_username
         admin_password = var.admin_password
         custom_data    = file("${path.root}/scripts/${var.startup-script}")
