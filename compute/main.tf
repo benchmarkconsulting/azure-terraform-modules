@@ -1,15 +1,9 @@
-
-
 # Create public IPs
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = var.location
     resource_group_name          = var.azurerm_resource_group
     allocation_method            = "Dynamic"
-
-    tags = {
-        environment = "Terraform Demo"
-    }
 }
 
 # Create network interface
@@ -24,10 +18,6 @@ resource "azurerm_network_interface" "myterraformnic" {
         subnet_id                     = var.azurerm_subnet_id
         private_ip_address_allocation = "Dynamic"
         public_ip_address_id          = azurerm_public_ip.myterraformpublicip.id
-    }
-
-    tags = {
-        environment = "Terraform Demo"
     }
 }
 
@@ -56,7 +46,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     }
 
     os_profile {
-        computer_name  = "myvm"
+        computer_name  = var.name
         admin_username = var.admin_username
         admin_password = var.admin_password
         custom_data    = file("${path.root}/scripts/${var.startup-script}")
