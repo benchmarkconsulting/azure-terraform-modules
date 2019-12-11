@@ -13,11 +13,6 @@ variable "resource_group_name" {
   description = "Resource group to add AKS cluter to"
 }
 
-variable "resource_group_name" {
-  type = string
-  description = "Resource group to add AKS cluter to"
-}
-
 variable "location" {
   type = string
   description = "what region shoudl we add the cluster to"
