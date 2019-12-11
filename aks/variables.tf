@@ -1,7 +1,14 @@
-# variable "dns_prefix" {
-#   type = string
-#   description = "dns prefix"
-# }
+variable "node_type" {
+  type = string
+  description = "Availabilityset or VirtualMachineScaleSets"
+  default = "VirtualMachineScaleSets"
+}
+
+variable "autoscale" {
+  type = string
+  description = "Availabilityset or VirtualMachineScaleSets"
+  default = "true"
+}
 
 variable "cluster_name" {
   type = string
