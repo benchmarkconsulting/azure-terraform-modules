@@ -6,10 +6,6 @@ variable "location" {
   description = "The location/region where the virtual network is created. Changing this forces a new resource to be created."
 }
 
-variable "name" {
-  description = "The name of the virtual machine."
-}
-
 variable "network_interface_ids" {
   description = "The name of the virtual machine."
 }
@@ -69,11 +65,6 @@ variable "vm_size" {
 variable "nb_instances" {
   description = "Specify the number of vm instances"
   default     = "1"
-}
-
-variable "vm_os_simple" {
-  description = "Specify UbuntuServer, WindowsServer, RHEL, openSUSE-Leap, CentOS, Debian, CoreOS and SLES to get the latest image version of the specified os.  Do not provide this value if a custom value is used for vm_os_publisher, vm_os_offer, and vm_os_sku."
-  default     = ""
 }
 
 variable "vm_os_id" {
