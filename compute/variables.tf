@@ -157,3 +157,10 @@ variable "enable_accelerated_networking" {
   description = "(Optional) Enable accelerated networking on Network interface"
   default     = "false"
 }
+
+
+cloudconfig_file
+
+variable "cloudconfig_file" {
+  description = "Location of the file used for cloud-init"
+}

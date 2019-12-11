@@ -41,6 +41,21 @@ resource "random_id" "randomId" {
     byte_length = 8
 }
 
+# Use cloud-init to run installs on first boot
+data "template_file" "cloudconfig" {
+  template = file(var.cloudconfig_file)
+}
+
+data "template_cloudinit_config" "config" {
+  gzip          = true
+  base64_encode = true
+
+  part {
+    content_type = "text/cloud-config"
+    content      = data.template_file.cloudconfig.rendered
+  }
+}
+
 # Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
@@ -69,6 +84,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         computer_name  = "myvm"
         admin_username = "azureuser"
         admin_password = "Pa$$1234"
+        custom_data    = data.template_cloudinit_config.config.rendered
     }
 
     os_profile_linux_config {
