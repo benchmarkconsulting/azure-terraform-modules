@@ -84,7 +84,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         computer_name  = "myvm"
         admin_username = "azureuser"
         admin_password = "Pa$$1234"
-        custom_data    = "${file("${path.root}/scripts/${var.cloudconfig_file}")}"
+        custom_data    = file("${path.root}/scripts/${var.cloudconfig_file}")
     }
 
     os_profile_linux_config {
