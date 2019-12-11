@@ -62,6 +62,10 @@ variable "vm_size" {
   default     = "Standard_DS1_V2"
 }
 
+variable "vm_hostname" {
+  description = "Specifies the name of the virtual machine."
+}
+
 variable "nb_instances" {
   description = "Specify the number of vm instances"
   default     = "1"
