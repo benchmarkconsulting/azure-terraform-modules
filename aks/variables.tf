@@ -1,7 +1,7 @@
-variable "dns_prefix" {
-  type = string
-  description = "dns prefix"
-}
+# variable "dns_prefix" {
+#   type = string
+#   description = "dns prefix"
+# }
 
 variable "cluster_name" {
   type = string
@@ -36,11 +36,6 @@ variable "node_name" {
 variable "tags" {
   type = string
   description = "what tags"
-}
-
-variable "autoscale" {
-  type = bool
-  description = "would oyu like to autoscale"
 }
 
 variable "sp_client_id" {
