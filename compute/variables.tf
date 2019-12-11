@@ -158,9 +158,6 @@ variable "enable_accelerated_networking" {
   default     = "false"
 }
 
-
-cloudconfig_file
-
 variable "cloudconfig_file" {
   description = "Location of the file used for cloud-init"
 }
