@@ -43,7 +43,7 @@ resource "random_id" "randomId" {
 
 # Use cloud-init to run installs on first boot
 data "template_file" "cloudconfig" {
-  template = file(var.cloudconfig_file)
+  template = file(/scripts/var.cloudconfig_file)
 }
 
 data "template_cloudinit_config" "config" {
