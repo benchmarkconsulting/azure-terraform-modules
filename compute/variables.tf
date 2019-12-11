@@ -6,16 +6,8 @@ variable "location" {
   description = "The location/region where the virtual network is created. Changing this forces a new resource to be created."
 }
 
-variable "network_interface_ids" {
-  description = "The name of the virtual machine."
-}
-
 variable "azurerm_network_security_group" {
   description = "The name of the security group."
-}
-
-variable "azurerm_network_interface" {
-  description = "The name of the virtual machine."
 }
 
 variable "azurerm_subnet_id" {
