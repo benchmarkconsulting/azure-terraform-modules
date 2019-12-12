@@ -48,7 +48,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks" {
   enable_auto_scaling   = each.value.cluster_auto_scaling
   min_count             = each.value.cluster_auto_scaling_min_count
   max_count             = each.value.cluster_auto_scaling_max_count
-
+}
 output "client_certificate" {
   value = azurerm_kubernetes_cluster.aks.kube_config.0.client_certificate
 }
