@@ -4,11 +4,11 @@
 #   default = "VirtualMachineScaleSets"
 # }
 
-variable "autoscale" {
-  type = string
-  description = "Availabilityset or VirtualMachineScaleSets"
-  default = "true"
-}
+# variable "autoscale" {
+#   type = string
+#   description = "Availabilityset or VirtualMachineScaleSets"
+#   default = "true"
+# }
 
 variable "cluster_name" {
   type = string
