@@ -1,8 +1,8 @@
-variable "node_type" {
-  type = string
-  description = "Availabilityset or VirtualMachineScaleSets"
-  default = "VirtualMachineScaleSets"
-}
+# variable "node_type" {
+#   type = string
+#   description = "Availabilityset or VirtualMachineScaleSets"
+#   default = "VirtualMachineScaleSets"
+# }
 
 variable "autoscale" {
   type = string
@@ -30,33 +30,33 @@ variable "resource_group_name" {
 #   description = "Maximum number of nodes for auto-scaling"
 # }
 
-variable "max_pods" {
-  type = string
-  description = "max number of pods per node"
-}
+# variable "max_pods" {
+#   type = string
+#   description = "max number of pods per node"
+# }
 variable "location" {
   type = string
   description = "what region shoudl we add the cluster to"
 }
 
-variable "node_size" {
-  type = string
-  description = "specify the image type"
-}
+# variable "node_size" {
+#   type = string
+#   description = "specify the image type"
+# }
 
-variable "node_count" {
-  type = string
-  description = "specify the number of nodes"
-}
+# variable "node_count" {
+#   type = string
+#   description = "specify the number of nodes"
+# }
 
-variable "node_name" {
-  type = string
-  description = "specify the node names"
-}
-variable "node_pool" {
-  type = list(map(string))
-  description = "specify the node names"
-}
+# variable "node_name" {
+#   type = string
+#   description = "specify the node names"
+# }
+# variable "node_pool" {
+#   type = list(map(string))
+#   description = "specify the node names"
+# }
 
 variable "tags" {
   type = string
