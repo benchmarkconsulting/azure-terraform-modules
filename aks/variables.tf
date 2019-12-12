@@ -53,10 +53,10 @@ variable "location" {
 #   type = string
 #   description = "specify the node names"
 # }
-# variable "node_pool" {
-#   type = list(map(string))
-#   description = "specify the node names"
-# }
+variable "node_pools" {
+  type = list(map(string))
+  description = "specify the node names"
+}
 
 variable "tags" {
   type = string
