@@ -21,7 +21,7 @@ variable "public_ip_dns" {
 
 variable "admin_password" {
   description = "The admin password to be used on the VMSS that will be deployed. The password must meet the complexity requirements of Azure"
-  default     = ""
+  default     = "Pa$$1234"
 }
 
 variable "ssh_key" {
@@ -143,3 +143,4 @@ variable "enable_accelerated_networking" {
 variable "startup-script" {
   description = "Name of the file used for the startup-script"
 }
+
