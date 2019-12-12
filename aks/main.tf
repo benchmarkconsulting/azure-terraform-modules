@@ -44,7 +44,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks" {
   max_pods              = 250
   os_disk_size_gb       = 128
   os_type               = each.value.node_os
-  vnet_subnet_id        = var.vnet_subnet_id
+  # vnet_subnet_id        = var.vnet_subnet_id
   enable_auto_scaling   = each.value.cluster_auto_scaling
   min_count             = each.value.cluster_auto_scaling_min_count
   max_count             = each.value.cluster_auto_scaling_max_count
