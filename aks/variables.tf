@@ -20,15 +20,15 @@ variable "resource_group_name" {
   description = "Resource group to add AKS cluter to"
 }
 
-variable "min_node_count" {
-  type = string
-  description = "Minimum number of nodes for auto-scaling"
-}
+# variable "min_node_count" {
+#   type = string
+#   description = "Minimum number of nodes for auto-scaling"
+# }
 
-variable "max_node_count" {
-  type = string
-  description = "Maximum number of nodes for auto-scaling"
-}
+# variable "max_node_count" {
+#   type = string
+#   description = "Maximum number of nodes for auto-scaling"
+# }
 
 variable "max_pods" {
   type = string
