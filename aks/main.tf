@@ -40,7 +40,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks" {
   name                  = each.value.node_os == "Windows" ? substr(each.key, 0, 6) : substr(each.key, 0, 12)
   node_count            = each.value.node_count
   vm_size               = each.value.vm_size
-  availability_zones    = each.value.zones
+#availability_zones    = each.value.zones
   max_pods              = 250
   os_disk_size_gb       = 128
   os_type               = each.value.node_os

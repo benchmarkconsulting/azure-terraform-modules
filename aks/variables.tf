@@ -70,7 +70,7 @@ variable "additional_node_pools" {
   type = map(object({
     node_count                     = number
     vm_size                        = string
-    zones                          = list(string)
+ #   zones                          = list(string)
     node_os                        = string
     cluster_auto_scaling           = bool
     cluster_auto_scaling_min_count = number
