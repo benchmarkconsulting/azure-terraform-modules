@@ -66,3 +66,14 @@ variable "sp_client_id" {
 variable "sp_client_secret" {
   description = "The Client Secret of the Service Principal assigned to Kubernetes"
 }
+variable "additional_node_pools" {
+  type = map(object({
+    node_count                     = number
+    vm_size                        = string
+    zones                          = list(string)
+    node_os                        = string
+    cluster_auto_scaling           = bool
+    cluster_auto_scaling_min_count = number
+    cluster_auto_scaling_max_count = number
+  }))
+}
