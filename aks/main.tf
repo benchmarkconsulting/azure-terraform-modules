@@ -10,15 +10,14 @@ resource "azurerm_kubernetes_cluster" "aks" {
   dns_prefix            = var.cluster_name
 
   default_node_pool {
-    count               = lookup(var.node_pools)
-    enable_auto_scaling = lookup(var.node_pools[count.index],"autoscale", "")
-    name                = var.node_pools[count.index]["node_name"]
-    node_count          = var.node_pools[count.index]["node_count"]
-    vm_size             = var.node_pools[count.index]["node_size"]
-    type                = var.node_pools[count.index]["node_type"]
-    # min_count           = var.node_pools[count.index]["min_node_count"]
-    # max_count           = var.node_pools[count.index]["max_node_count"]
-    max_pods            = var.node_pools[count.index]["max_pods"]
+    enable_auto_scaling = var.autoscale
+    name                = var.node_name
+    node_count          = var.node_count
+    vm_size             = var.node_size
+    type                = var.node_type
+    min_count           = var.min_node_count
+    max_count           = var.max_node_count
+    max_pods            = var.max_pods
   }
 
   service_principal {
