@@ -18,7 +18,7 @@ intended for Terraform 0.11.x is [3.0.0].
 
 ```hcl
 module "aks" {
-    source              = "git::https://oauth2:<oauthtoken>@gitlab.com/kwdevops/azure-terraform-modules//aks"
+    source              = "git::https://https://github.com/benchmarkconsulting/azure-terraform-modules.git//aks"
     resource_group_name = "demo"
     location            = "eastus"
     cluster_name        = "testaksclus"
